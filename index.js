@@ -21,6 +21,7 @@ app.group('/api/v1', (router)=>{
     
     router.post('/login', AuthController.login)
     router.post('/register', UserController.store)
+    router.get('/users', UserController.allUser)
 
     // // Menampilkan Seluruh Webtoon
     router.get('/webtoons', WebtoonController.index)

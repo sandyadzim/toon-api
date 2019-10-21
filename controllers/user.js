@@ -2,6 +2,11 @@ const jwt = require('jsonwebtoken')
 const models = require('../models')
 const User = models.user
 
+exports.allUser = (req, res) => {
+    User.findAll().then(item=>res.send(item));
+}
+
+
 exports.store = (req, res) =>{
     const email = req.body.email
     const password = req.body.password
