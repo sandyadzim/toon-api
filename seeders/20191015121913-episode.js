@@ -17,8 +17,6 @@ module.exports = {
         title:'Ep.3',
         image:'https://cdn.novelupdates.com/images/2018/08/Ni5AHfl.jpg',
         id_webtoon:2,
-        createdAt: new Date(),
-        updatedAt: new Date(),
       },
     ])
   },
