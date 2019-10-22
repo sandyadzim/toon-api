@@ -7,11 +7,11 @@ exports.index = (req, res) => {
 }
 
 
-// exports.showFavorite = (req, res)=>{
-//     Webtoon.findAll({
-//         where:{is_favorite: true},
-//     }).then(result=>res.send(result))
-// }
+exports.showFavorite = (req, res)=>{
+    Webtoon.findAll({
+        where:{is_favorite: true},
+    }).then(result=>res.send(result))
+}
 
 
 exports.showTitle = (req, res)=>{
