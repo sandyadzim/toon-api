@@ -1,22 +1,26 @@
 const models = require('../models')
 const Episode = models.episode
-const User = models.user
+const Webtoon = models.webtoon
 
-exports.index = (req, res)=>{
-    Episode.findAll({
-        where:{
-            id_webtoon: req.params.id_webtoon,
-        },
-    }).then(result=> res.send(result));
+exports.index = async (req, res)=>{
+    const eps = await Episode.findAll({
+        where: {id_webtoon: req.params.id_webtoon},
+        include: [
+            {
+                model: Webtoon,
+                as: 'webtoonId'
+            },
+        ],
+    });
+    res.send(eps);
+
+    // Episode.findAll({
+    //     where:{
+    //         id_webtoon: req.params.id_webtoon,
+    //     },
+    // }).then(result=> res.send(result));
 };
 
-// exports.showEps = (req, res)=>{
-//     Episode.findAll({
-//         where:{
-//             id_webtoon
-//         }
-//     })
-// }
 exports.createMyEpisode = (req, res) =>{
     const { title, image } = req.body
     Episode.create({
