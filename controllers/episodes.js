@@ -5,7 +5,7 @@ const Webtoon = models.webtoon
 
 exports.index = async (req, res)=>{
     const eps = await Episode.findAll({
-        where: {id_webtoon: req.params.id},
+        where: {id_webtoon: req.params.id_webtoon},
         include: [
             {
                 model: Webtoon,
