@@ -13,7 +13,7 @@ exports.index = (req, res)=>{
     //         },
     //     ],
     // });
-    res.send(eps)
+    // res.send(eps)
     Episode.findAll({
         where:{
             id_webtoon: req.params.id_webtoon,
