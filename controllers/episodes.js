@@ -3,22 +3,22 @@ const Episode = models.episode
 const User = models.user
 const Webtoon = models.webtoon
 
-exports.index = async (req, res)=>{
-    const eps = await Episode.findAll({
-        where: {id_webtoon: req.params.id_webtoon},
-        include: [
-            {
-                model: Webtoon,
-                as: 'webToon',
-            },
-        ],
-    });
+exports.index = (req, res)=>{
+    // const eps = await Episode.findAll({
+    //     where: {id_webtoon: req.params.id_webtoon},
+    //     include: [
+    //         {
+    //             model: Webtoon,
+    //             as: 'webToon',
+    //         },
+    //     ],
+    // });
     res.send(eps)
-    // Episode.findAll({
-    //     where:{
-    //         id_webtoon: req.params.id_webtoon,
-    //     },
-    // }).then(result=> res.send(result));
+    Episode.findAll({
+        where:{
+            id_webtoon: req.params.id_webtoon,
+        },
+    }).then(result=> res.send(result));
 };
 
 // exports.showEps = (req, res)=>{
