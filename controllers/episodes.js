@@ -1,19 +1,8 @@
 const models = require('../models')
 const Episode = models.episode
 const User = models.user
-const Webtoon = models.webtoon
 
 exports.index = (req, res)=>{
-    // const eps = await Episode.findAll({
-    //     where: {id_webtoon: req.params.id_webtoon},
-    //     include: [
-    //         {
-    //             model: Webtoon,
-    //             as: 'webToon',
-    //         },
-    //     ],
-    // });
-    // res.send(eps)
     Episode.findAll({
         where:{
             id_webtoon: req.params.id_webtoon,
