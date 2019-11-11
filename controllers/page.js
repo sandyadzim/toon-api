@@ -16,9 +16,11 @@ exports.getPages = (req, res)=>{
 exports.createPage = (req, res)=>{
     const{page, image} = req.body
     Page.create({
-        id_episode: req.params.episode_id,
         page,
-        image
+        image,
+        id_episode: req.params.episode_id,
+        id_user: req.params.user_id,
+        id_webtoon: req.params.webtoon_id
     }).then(result=> res.send(result))
 }
 
