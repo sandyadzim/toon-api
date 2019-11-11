@@ -16,7 +16,7 @@ exports.login = (req, res) =>{
                 id: user.id,
                 email,
                 token,
-                name
+                name: user.name,
                 message:  'Login Sukses!!'
             })
         }else{
