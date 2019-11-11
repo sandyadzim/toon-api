@@ -9,10 +9,6 @@ exports.getPages = (req, res)=>{
 
     Episode.findAll({
         where: { id_webtoon: webtoonId, id_episode: episodeId },
-        include: [{
-            model: Webtoon,
-            as: 'webtoonId'
-        }]
     }).then(result => res.send(result))
     .catch(err => console.log(err))
 };

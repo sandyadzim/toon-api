@@ -17,21 +17,27 @@ module.exports = {
       id_webtoon: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references:{
-          model:'webtoons',
-          key:'id'
+        references: {
+          model: 'webtoons',
+          key: 'id'
         },
-        onUpdate:'cascade',
-        onDelete:'cascade',
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
+      },
+      id_user: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
-        defaultValue: new Date(),
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        defaultValue: new Date(),
         type: Sequelize.DATE
       }
     });
