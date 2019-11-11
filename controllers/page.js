@@ -4,11 +4,11 @@ const Page = models.page
 const Webtoon = models.webtoon
 
 exports.getPages = (req, res)=>{
-    const webtoonId = req.params.id_webtoon
-    const episodeId = req.params.id_episode
-
-    Episode.findAll({
-        where: { id_webtoon: webtoonId, id_episode: episodeId },
+    Page.findAll({
+        where: {
+            id_webtoon: req.params.id_webtoon,
+            id_episode: req.params.id_episode
+        },
     }).then(result => res.send(result))
     .catch(err => console.log(err))
 };
