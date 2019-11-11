@@ -20,7 +20,7 @@ exports.createMyEpisode = (req, res) =>{
     Episode.create({
         title,
         image,
-        id_webtoon:req.params.webtoon_id,
+        id_webtoon: req.params.webtoon_id,
         id_user: req.params.user_id
     }).then(result => res.send(result))
     .catch((result) => {
