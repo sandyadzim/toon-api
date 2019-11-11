@@ -7,8 +7,8 @@ exports.getPages = (req, res)=>{
     const webtoonId = req.params.id_webtoon
     const episodeId = req.params.id_episode
 
-    Episode.findOne({
-        where: { id_webtoon: webtoonId, id: episodeId },
+    Episode.findAll({
+        where: { id_webtoon: webtoonId, id_episode: episodeId },
         include: [{
             model: Webtoon,
             as: 'webtoonId'

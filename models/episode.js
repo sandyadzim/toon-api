@@ -12,10 +12,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey:'id_webtoon'
     });
 
-    episode.belongsTo(models.user, {
-      as:'createdBy',
-      foreignKey:'created_by'
-    })
+    // episode.belongsTo(models.user, {
+    //   as:'createdBy',
+    //   foreignKey:'created_by'
+    // })
   };
   return episode;
 };

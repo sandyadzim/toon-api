@@ -4,7 +4,7 @@ const Webtoon = models.webtoon
 
 exports.index = async (req, res)=>{
     const eps = await Episode.findAll({
-        where: {id_webtoon: req.params.id_webtoon},
+        where: {id: req.params.id_webtoon},
         include: [
             {
                 model: Webtoon,
@@ -12,13 +12,7 @@ exports.index = async (req, res)=>{
             },
         ],
     });
-    res.send(eps);
-
-    // Episode.findAll({
-    //     where:{
-    //         id_webtoon: req.params.id_webtoon,
-    //     },
-    // }).then(result=> res.send(result));
+    res.send(eps)
 };
 
 exports.createMyEpisode = (req, res) =>{
@@ -37,8 +31,6 @@ exports.createMyEpisode = (req, res) =>{
 }
 exports.getEpisode = (req, res)=>{
     const webtoonId = req.params.webtoon_id
-    // const userId = req.params.user_id
-    // const episodeId = req.params.episode_id
 
     Episode.findAll({
         where: { id_webtoon: webtoonId},
