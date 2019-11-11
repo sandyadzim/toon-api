@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       as:'episodeId',
       foreignKey:'id_episode'
     })
+
+    page.belongsTo(models.webtoon, {
+      as:'webtoonId',
+      foreignKey:'id_webtoon'
+    })
   };
   return page;
 };

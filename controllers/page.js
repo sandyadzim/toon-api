@@ -1,19 +1,20 @@
 const models = require('../models')
 const Episode = models.episode
 const Page = models.page
+const Webtoon = models.webtoon
 
 exports.getPages = (req, res)=>{
     const webtoonId = req.params.id_webtoon
     const episodeId = req.params.id_episode
 
     Episode.findOne({
-        where: { id_webtoon: webtoonId },
-        // attributes: { exclude:["id", "id_episode"] }
-    }).then((episode)=>{
-        Page.findAll({
-            where:{ id_episode: episodeId }
-        }).then(page => res.send(page))
-    })
+        where: { id_webtoon: webtoonId, id: episodeId },
+        include: [{
+            model: Webtoon,
+            as: 'webtoonId'
+        }]
+    }).then(result => res.send(result))
+    .catch(err => console.log(err))
 };
 
 exports.createPage = (req, res)=>{
