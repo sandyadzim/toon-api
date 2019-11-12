@@ -59,6 +59,11 @@ app.group('/api/v1', (router)=>{
     // //Membuat/mengahpus halaman untuk episode tertentu
     router.post('/user/:user_id/webtoon/:webtoon_id/episode/:episode_id/image', authenticated, EpisodePage.createPage)
     router.delete('/user/:user_id/webtoon/:webtoon_id/episode/:episode_id/image/:image_id', authenticated, EpisodePage.deletePage)
+
+    //Favourite
+    router.get('/user/:user_id/webtoons/favourite', authenticated, FavoriteController.showFav)
+    router.post('/user/:user_id/webtoon/:webtoon_id/favourite', authenticated, FavoriteController.addFav)
+    router.delete('/user/:user_id/webtoon/:webtoon_id/favourite/:favourite_id', authenticated, FavoriteController.delFav)
 })
 // app.listen(port, () => console.log('Listening o Port ${7000}'))
 app.listen(process.env.PORT||9000, () => console.log('Listening o Port ${9000}'))
