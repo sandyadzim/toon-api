@@ -30,12 +30,12 @@ exports.addFav = (req, res) => {
 
 exports.delFav = (req, res) => {
     Favorite.destroy({
-        id: req.params.favorite_id,
+        id: req.params.favourite_id,
         user_id: req.params.user_id,
         webtoon_id: req.params.webtoon_id
     })
     .then(result => res.send({
-        id: req.params.favorite_id,
+        id: req.params.favourite_id,
         message: 'Delete Success'
     }))
 }
