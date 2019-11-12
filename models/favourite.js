@@ -6,6 +6,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   favourite.associate = function(models) {
     // associations can be defined here
+    favourite.belongsTo(models.user, {
+      as: 'userId',
+      foreignKey: 'user_id'
+    })
+
     favourite.belongsTo(models.webtoon, {
       as: 'webtoonId',
       foreignKey: 'webtoon_id'

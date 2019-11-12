@@ -1,5 +1,5 @@
 const models = require('../models')
-const Favorite = models.favorite
+const Favorite = models.favourite
 const Webtoon = models.webtoon
 
 exports.getFav = (req, res) =>{
