@@ -34,10 +34,12 @@ exports.delFav = (req, res) => {
         user_id: req.params.user_id,
         webtoon_id: req.params.webtoon_id
     })
-    .then(result => res.send({
+    .then(result => 
+        res.send({
         id: req.params.favourite_id,
         message: 'Delete Success'
-    }))
+        })
+    )
 }
 
 exports.showFav = (req, res) => {
@@ -51,4 +53,25 @@ exports.showFav = (req, res) => {
         }]
     })
     .then(result => res.send(result))
+}
+exports.deleteMyFavourite = (req , res) => {
+    Favorite.destroy({
+        where: {
+            id: req.params.favourite_id,
+            user_id: req.params.user_id,
+            webtoon_id: req.params.webtoon_id
+        }
+    })
+    .then(result => {
+        if (result) {
+            res.send({
+                id: req.params.favourite_id
+            })
+        } else {
+            res.send({
+                error: true,
+                message: 'delete favourite failed'
+            });
+        }
+    })
 }
