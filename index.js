@@ -61,7 +61,7 @@ app.group('/api/v1', (router)=>{
     router.delete('/user/:user_id/webtoon/:webtoon_id/episode/:episode_id/image/:image_id', authenticated, EpisodePage.deletePage)
 
     //Favourite
-    router.get('/user/:user_id/webtoons/favourite', authenticated, FavoriteController.showFav)
+    router.get('/user/:user_id/webtoons/favourite', FavoriteController.showFav)
     router.post('/user/:user_id/webtoon/:webtoon_id/favourite', authenticated, FavoriteController.addFav)
     router.delete('/user/:user_id/webtoon/:webtoon_id/favourite/:favourite_id', authenticated, FavoriteController.delFav)
 })
